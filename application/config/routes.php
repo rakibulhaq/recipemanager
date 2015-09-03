@@ -38,11 +38,23 @@
 |
 */
 
+// users
 $route['default_controller'] = "users";
-$route['add'] = "recipes/add";
-$route['recipes/(:any)'] = "recipes/add";
-$route['404_override'] = '';
+$route["login"] = "users/login";
+$route["register"] = "users/register";
+$route['users/(:any)'] = "users/show/$1";
+$route['logout'] = "users/logout";
 
+// recipes
+$route["recipes/all"] = "recipes/index";
+$route['add'] = "recipes/add";
+$route['create'] = "recipes/create";
+$route['edit/(:any)'] = "recipes/edit/$1";
+$route['update'] = "recipes/update";
+$route['recipes/(:any)'] = "recipes/show/$1";
+$route['save/(:any)'] = "recipes/save/$1";
+
+$route['404_override'] = '';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

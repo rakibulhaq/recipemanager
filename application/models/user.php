@@ -36,6 +36,12 @@ class User extends CI_Model {
       $this->session->set_userdata('id',$id);
 		}
 	}
+
+	public function show($id){
+		$query = "SELECT users.first_name, users.id FROM users WHERE users.id = ?";
+		$values = $id;
+		return $this->db->query($query,$values)->row_array();
+	}
 }
 
 /* End of file welcome.php */

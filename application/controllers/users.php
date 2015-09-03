@@ -14,7 +14,7 @@ class Users extends CI_Controller {
 	public function login(){
 		$this->user->login($this->input->post());
 		if($this->session->userdata('id')){
-			redirect("/recipes");
+			redirect("/recipes/all");
 		}
 		redirect("/");
 	}
@@ -25,6 +25,18 @@ class Users extends CI_Controller {
 			redirect("/recipes");
 		}
 		redirect("/");
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect("/");
+	}
+
+	public function show($id){
+		$user = $this->user->show($id);
+		$recipes = $this->recipe->get_recipes_by_user($id);
+		$saved = $this->recipe->saved_recipes_by_user($id);
+		$this->load->view("user", array("user" => $user, "recipes" => $recipes, "saved" => $saved));
 	}
 }
 

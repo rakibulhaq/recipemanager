@@ -6,15 +6,14 @@
 </head>
 <body>
 	<?= $this->session->flashdata('errors') ?>
-	<?php var_dump($this->session->userdata('id')); ?>
 	<h2>Login</h2>
-	<form action="users/login" method="post">
+	<form action="/login" method="post">
 		<input type="text" name="email" placeholder="email here...">
 		<input type="password" name="password" placeholder="password here...">
 		<input type="submit" value="login">
 	</form>
 	<h2>Register</h2>
-	<form action="users/register" method="post">
+	<form action="/register" method="post">
 		<input type="text" name="first_name" placeholder="first name">
 		<input type="text" name="last_name" placeholder="last name">
 		<input type="text" name="email" placeholder="email">
